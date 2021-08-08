@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "test": "node app.js",
     "start": "node app.js"
   },
   "keywords": [],
@@ -20,6 +21,7 @@
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.0",
     "express-session": "^1.17.1",
+    "firebase-tools": "^9.16.0",
     "helmet": "^4.1.1",
     "heroku-cli": "^7.0.9",
     "joi": "^17.2.1",
