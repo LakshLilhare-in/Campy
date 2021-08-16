@@ -1,7 +1,7 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
-const port = process.env.port 
+const campy = {}
 
 const express = require('express');
 const path = require('path');
@@ -160,8 +160,18 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
-app.listen(port, () => {
-    console.log(`Serving on port ${port}`)
-})
 
 
+campy.listen = (port) => {
+    app.listen(port,() => {
+        console.log(`Application ${campy.appName} is serving on ${port}`)
+    })
+}
+
+
+    
+    campy.listen(campy.port)
+
+    module.exports.listen = (port) => {
+        campy.listen(port)
+    }
