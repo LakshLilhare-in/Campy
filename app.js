@@ -1,3 +1,5 @@
+
+
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
@@ -23,8 +25,10 @@ const MongoDBStore =require('connect-mongo')
 const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
+const { emitWarning } = require('process');
+const { crossOriginResourcePolicy } = require('helmet');
 
-mongoose.connect('mongodb+srv://laksh:l123a@campy-storage-database.yjlsg.mongodb.net/campy', {
+mongoose.connect('localhost:27017/campy', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -163,15 +167,23 @@ app.use((err, req, res, next) => {
 
 
 campy.listen = (port) => {
+    if (port === undefined) {
+        app.listen(1234,() => {
+            console.log('Warning! :Application port is not specified.Continuing via the default port 1234')
+        })
+    }else {
     app.listen(port,() => {
-        console.log(`Application ${campy.appName} is serving on ${port}`)
-    })
+        console.log(`Application ${appName} is serving on ${port}`)
+    })}
+    if (process.env.NODE_ENV !== "production") {
+        console.log(`Hey there ,A quick tip in development! You can change Line 31 mongoose.connect function's first param`)
+    }
 }
 
 
     
-    campy.listen(campy.port)
 
-    module.exports.listen = (port) => {
-        campy.listen(port)
+
+    module.exports.listen = (enport) => {
+    campy.listen(enport)
     }
