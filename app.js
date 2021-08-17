@@ -35,8 +35,12 @@ mongoose.connect('localhost:27017/campy', {
     useFindAndModify: false
 });
 
+function err(err){
+   return new Error('Could not reach to the database')
+}
+
 const db = mongoose.connection;
-db.on("error", console.error.bind(console, "connection error:"));
+db.on('error', console.error.bind(console, 'Could not reach to the database'));
 db.once("open", () => {
     console.log("Database connected");
 });
