@@ -19,8 +19,34 @@ A module makes Campy Campgrounds hosting easily
 Install Campy Module with npm
 
 ```bash
-  npm install campy
+  npm install @lakshlilhare-in/campy
 ```
+###
+
+## FAQ
+
+#### How to change database target?
+You can change the cluster by changing app.js mongoose.connect function's param 1.
+But However the app is fully based on MongoDB mongoose so it will be very hard to change database service.
+  ```js
+  mongoose.connect('Your Cluster', {
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
+});
+
+  ```
+#### Change Cloudinary Image Upload API
+```js
+  // Change cloudinary/index.js
+    cloudinary.config({ 
+    cloud_name: 'You Clodinary cloud app name', 
+    api_key: 'You Clodinary cloud API key', 
+    api_secret: 'You Clodinary cloud Secret key'
+})
+ ``` 
+
     
 ## Features
 
@@ -32,7 +58,7 @@ Install Campy Module with npm
   
 ## License
 
-- [Apache 2.0]()
+ [Apache 2.0]() :
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 

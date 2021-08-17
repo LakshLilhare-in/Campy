@@ -1,6 +1,6 @@
 {
-  "name": "campy",
-  "version": "1.0.4",
+  "name": "@LakshLilhare-in/campy",
+  "version": "1.0.3",
   "description": "",
   "main": "app.js",
   "scripts": {
@@ -8,8 +8,11 @@
     "start": "node app.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Laksh",
+  "repository": {
+    "url": "https://github.com/LakshLilhare-in/Campy.git"
+  },
+  "license": "Apache 2.0",
   "dependencies": {
     "@mapbox/mapbox-sdk": "^0.11.0",
     "cloudinary": "^1.23.0",
@@ -21,9 +24,7 @@
     "express": "^4.17.1",
     "express-mongo-sanitize": "^2.0.0",
     "express-session": "^1.17.1",
-    "firebase-tools": "^9.16.0",
     "helmet": "^4.1.1",
-    "heroku-cli": "^7.0.9",
     "joi": "^17.2.1",
     "method-override": "^3.0.0",
     "mongoose": "^5.10.4",

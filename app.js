@@ -176,7 +176,7 @@ campy.listen = (port) => {
         console.log(`Application ${appName} is serving on ${port}`)
     })}
     if (process.env.NODE_ENV !== "production") {
-        console.log(`Hey there ,A quick tip in development! You can change Line 31 mongoose.connect function's first param and cloudinary/index.js cloudinry.config`)
+        console.log(`Hey there ,A quick tip in development! You can change Line 31 mongoose.connect function's first param and cloudinary/index.js cloudinary.config`)
     }
 }
 
