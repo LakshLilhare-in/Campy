@@ -29,6 +29,7 @@ Install Campy Module with npm
 You can change the cluster by changing app.js mongoose.connect function's param 1.
 But However the app is fully based on MongoDB mongoose so it will be very hard to change database service.
   ```js
+  // Change app.js
   mongoose.connect('Your Cluster', {
     useNewUrlParser: true,
     useCreateIndex: true,
