@@ -1,10 +1,10 @@
 {
   "name": "@LakshLilhare-in/campy",
   "version": "2.0.0",
-  "description": "",
+  "description": "A simple campgrounds explorer",
   "main": "app.js",
   "scripts": {
-    "test": "node app.js",
+    "test": "nodemon app.js",
     "start": "node app.js"
   },
   "keywords": [],
