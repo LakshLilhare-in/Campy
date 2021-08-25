@@ -1,62 +1,43 @@
-
-# Campy 
-
-A module makes Campy Campgrounds hosting easily
+# Campy!
+Campy 2.0 is available redisigned Cluster map and styled a lot!
 
 
-## Authors
+## Environment Variables
 
-- [Laksh]()
+To run this project, you will need to add the following environment variables to your .env file
 
-
-
-  
-# Documentation
-
-
-## Installation
-
-Install Campy Module with npm
-
-```bash
-  npm install @lakshlilhare-in/campy
-```
-###
-
-## FAQ
-
-#### How to change database target?
-You can change the cluster by changing app.js mongoose.connect function's param 1.
-But However the app is fully based on MongoDB mongoose so it will be very hard to change database service.
-  ```js
-  // Change app.js
-  mongoose.connect('Your Cluster', {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true,
-    useFindAndModify: false
-});
-
-  ```
-#### Change Cloudinary Image Upload API
-```js
-  // Change cloudinary/index.js
-    cloudinary.config({ 
-    cloud_name: 'You Clodinary cloud app name', 
-    api_key: 'You Clodinary cloud API key', 
-    api_secret: 'You Clodinary cloud Secret key'
-})
- ``` 
-
-    
+Cloudinary cloud name
+`cloud` 
+Cloudinary API Key
+`api`
+Cloudinary API Secret 
+`secret`
+MongoDB Database `database`
 ## Features
 
-- Interactive Campground Map
-- Reviews
-- User Login/Register 
+- Interactive Satelite Map
+- Authorization
+- Responsive 
+
 
 
   
+## Feedback
+
+If you have any feedback, please reach out to us at laksh.r.lilhare@gmail.com
+
+
+
+  
+## Installation
+
+Install Campy with npm
+
+```bash
+  npm config set registry npm.pkg.github.com
+  npm install @lakshlilhare-in/campy
+  npm config set registry registry.npmjs.com
+```
 ## License
 
  [Apache 2.0]() :
