@@ -1,10 +1,8 @@
 
-
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
 const campy = {}
-
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -16,7 +14,6 @@ const methodOverride = require('method-override');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const User = require('./models/user');
-const helmet = require('helmet');
 
 const mongoSanitize = require('express-mongo-sanitize');
 
@@ -26,9 +23,8 @@ const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const { emitWarning } = require('process');
-const { crossOriginResourcePolicy } = require('helmet');
-
-mongoose.connect('localhost:27017/campy', {
+const appName = ''
+mongoose.connect('mongodb+srv://laksh:l123a@campy-storage-database.yjlsg.mongodb.net/campy?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useCreateIndex: true,
     useUnifiedTopology: true,
@@ -40,7 +36,7 @@ function err(err){
 }
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'Could not reach to the database'));
+db.on('error', console.error.bind(console, 'Could not reach to the database '));
 db.once("open", () => {
     console.log("Database connected");
 });
@@ -58,14 +54,7 @@ app.use(mongoSanitize({
     replaceWith: '_'
 }))
 
-// const sessionMongomaker = new MongoDBStore({
-//     url:'mongodb+srv://laksh:l123a@campy-storage-database.yjlsg.mongodb.net/campy?retryWrites=true&w=majority',
-//     secret:'L@0709_l',
-//     touchAfter: 24 * 60 * 60
-// })
-// store.on('error',() => {
-//     console.log('Mongo Session Storage Error')
-// })
+
 const sessionConfig = {
     name: 'session',
     secret: 'L@0709_l',
@@ -78,59 +67,17 @@ const sessionConfig = {
         maxAge: 1000 * 60 * 60 * 24 * 7
     },
     store: MongoDBStore.create({
-        mongoUrl: 'mongodb+srv://laksh:l123a@campy-storage-database.yjlsg.mongodb.net/campy?retryWrites=true&w=majority',
+        mongoUrl: process.env.database,
         touchAfter: 24 * 60 * 60 // time period in seconds
       })
 }
 
 app.use(session(sessionConfig));
 app.use(flash());
-app.use(helmet());
 
 
-const scriptSrcUrls = [
-    "https://stackpath.bootstrapcdn.com/",
-    "https://api.tiles.mapbox.com/",
-    "https://api.mapbox.com/",
-    "https://kit.fontawesome.com/",
-    "https://cdnjs.cloudflare.com/",
-    "https://cdn.jsdelivr.net",
-];
-const styleSrcUrls = [
-    "https://kit-free.fontawesome.com/",
-    "https://stackpath.bootstrapcdn.com/",
-    "https://api.mapbox.com/",
-    "https://api.tiles.mapbox.com/",
-    "https://fonts.googleapis.com/",
-    "https://use.fontawesome.com/",
-];
-const connectSrcUrls = [
-    "https://api.mapbox.com/",
-    "https://a.tiles.mapbox.com/",
-    "https://b.tiles.mapbox.com/",
-    "https://events.mapbox.com/",
-];
-const fontSrcUrls = [];
-app.use(
-    helmet.contentSecurityPolicy({
-        directives: {
-            defaultSrc: [],
-            connectSrc: ["'self'", ...connectSrcUrls],
-            scriptSrc: ["'unsafe-inline'", "'self'", ...scriptSrcUrls],
-            styleSrc: ["'self'", "'unsafe-inline'", ...styleSrcUrls],
-            workerSrc: ["'self'", "blob:"],
-            objectSrc: [],
-            imgSrc: [
-                "'self'",
-                "blob:",
-                "data:",
-                "https://res.cloudinary.com/douqbebwk/", //SHOULD MATCH YOUR CLOUDINARY ACCOUNT! 
-                "https://images.unsplash.com/",
-            ],
-            fontSrc: ["'self'", ...fontSrcUrls],
-        },
-    })
-);
+
+app.use(express.static(path.join(__dirname,'aurora/')))
 
 
 app.use(passport.initialize());
@@ -154,7 +101,7 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
 
 
 app.get('/', (req, res) => {
-    res.render('home')
+    res.sendFile(path.join(__dirname,'aurora/index.html'))
 });
 
 
@@ -180,7 +127,8 @@ campy.listen = (port) => {
         console.log(`Application ${appName} is serving on ${port}`)
     })}
     if (process.env.NODE_ENV !== "production") {
-        console.log(`Hey there ,A quick tip in development! You can change Line 31 mongoose.connect function's first param and cloudinary/index.js cloudinary.config`)
+        console.log(`Hey there ,A quick tip in development! In Campy 2.0 Now you can set Enviorment variables to train app's cloudinary cloud target and MongoDB target 
+        Database check README to see which enviorment variables to set`)
     }
 }
 
@@ -191,3 +139,5 @@ campy.listen = (port) => {
     module.exports.listen = (enport) => {
     campy.listen(enport)
     }
+
+    campy.listen(1234)

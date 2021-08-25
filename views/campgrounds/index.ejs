@@ -1,9 +1,14 @@
 <script src='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.js'></script>
 <link href='https://api.mapbox.com/mapbox-gl-js/v2.3.1/mapbox-gl.css' rel='stylesheet' />
 <% layout('layouts/boilerplate')%>
-<div id="cluster-map"></div>
-<div class="container">
-    <h1>All Campgrounds</h1>
+<div id="cluster-map" style="border-radius: 14px;"></div>
+<style>
+    .mapboxgl-map {
+    font-family: 'Montserrat',sans-serif !important;
+    }
+</style>
+<div class="container pt-3 pb-3">
+    <h1 class="p-3">All Campgrounds</h1>
 
     <% for (let campground of campgrounds){%>
     <div class="card mb-3">
@@ -40,7 +45,7 @@
     mapboxgl.accessToken = 'pk.eyJ1IjoibGFrc2hsaWxoYXJlIiwiYSI6ImNrcnEyeHVlbDAyc2Iyb21qem85ZmNqZmkifQ.X9Br6L2iEpBjDp0Jjchjog';
 const map = new mapboxgl.Map({
     container: 'cluster-map',
-    style: 'mapbox://styles/mapbox/light-v10',
+    style: 'mapbox://styles/lakshlilhare/cksqzft5s0av117q84fki5i0p',
     center: [-103.59179687498357, 40.66995747013945],
     zoom: 3
 });
