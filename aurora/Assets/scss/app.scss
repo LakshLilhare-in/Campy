@@ -1,0 +1,75 @@
+
+@import './bootstrap.scss';
+
+
+$theme-colors:(
+    "primary": #36b3a8
+);
+
+.nav-link:hover{
+    transition: border 0.3s;
+border-bottom: 1px solid white;
+}
+
+
+
+nav{
+    position: absolute;
+    top:0;
+    right: 0;
+   z-index: 3;
+   background: rgb(22, 121, 121);
+};
+
+@media(max-width:768px){
+
+    .nav-link{
+        border-bottom: none;
+    }
+    #showcase{
+        min-height: 500px;
+        h1{
+            font-size: 4rem;
+        }
+    }
+}
+
+.mh{
+    line-height: 1;
+}
+
+section#showcase {
+    position: relative;
+    .header{
+        z-index: 2;
+    }
+    .mha{
+        color: white;
+        background:none;
+    }
+    
+    min-height: 750px;
+    background: url('../../images/main.jpeg') bottom center / cover no-repeat;
+}
+
+.header{
+   padding-top: 3rem;
+}
+
+.teal{
+    background-color: teal;
+    border:none;
+    border-radius: 3px;
+    padding: 4px;
+    color: white;
+    text-size-adjust: 5px;
+}
+
+    .fot{
+      position: absolute;
+      bottom: 0;
+      width:100%;
+      text-align: center !important;
+    }
+
+    
