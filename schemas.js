@@ -5,7 +5,8 @@ const extension = (joi) => ({
     type: 'string',
     base: joi.string(),
     messages: {
-        'string.escapeHTML': 'Are You Trying Cross-site Scripting ,Never Try!!'
+        'string.escapeHTML': 'XSS is not allowed at Campy! No tags are allowed'
+    
     },
     rules: {
         escapeHTML: {
