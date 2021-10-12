@@ -34,13 +34,11 @@ If you have any feedback, please reach out to us at laksh.r.lilhare@gmail.com
 Install Campy with npm
 
 ```bash
-  npm config set registry=http://npm.pkg.github.com
-  npm install @lakshlilhare-in/campy
-  npm config set registry=http://registry.npmjs.com
+  npm install campy
 ```
 ## License
 
- [Apache 2.0]() :
+ [Apache 2.0](https://www.apache.org/licenses/LICENSE-2.0) :
 
 TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
 
