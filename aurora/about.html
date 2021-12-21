@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./Assets/Styles/app.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <script src="./Assets/jquery.js" defer></script>
+    <script src="/Assets/dist/js/bootstrap.js" defer></script>
+    <title>Campy</title>
+    <meta name="description" content="A simple campground explorer">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+      crossorigin="anonymous"
+      defer
+    ></script>
+  </head>
+  <body>
+    <nav
+      style="background-color: rgb(22, 121, 121) !important"
+      class="navbar bg-light navbar-expand-lg navbar-dark"
+    >
+      <a class="navbar-brand" href="/">Lrlc Campy</a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-toggle="collapse"
+        data-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="/">Home</a>
+          </li>
+          <li class="nav-item active">
+            <a class="nav-link" href="."
+              >About <span class="sr-only">(current)</span></a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="/campgrounds">Explore</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./contact.html">Contact</a>
+          </li>
+          <li class="nav-item"></li>
+        </ul>
+      </div>
+    </nav>
+    <h1 class="text-center pt-3">About us</h1>
+    <p class="lead text-center">
+      We provide campgrounds on our site .We do not fetch camps from another service or prebuilt all the camps available  
+    </p>
+    <h1 class="p-5">Our Services</h1>
+    <p class="m-3">- Fully secure campgrounds storage by <span class="text-success">MongoDB</span></p>
+    <p class="m-3">- Image Storage by <span class="text-primary">Cloudinary</span></p>
+    <div class="modal" tabindex="-1" role="dialog" id="booker">
+      <div role="dialog" class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5>Book A Slot</h5>
+            <button class="close" data-dismiss="modal">
+              <i class="text-danger fas fa-window-close"></i>
+            </button>
+          </div>
+          <div class="modal-body">
+            <p class="lead">
+              Enter the information below .We will come to you as fast as
+              possible
+            </p>
+            <form action="">
+              <label for="ema">Enter your Email address</label>
+              <input type="email" class="form-control" name="ema" id="" />
+              <label for="chdr">How many Children?</label>
+              <select name="chdr" class="form-control" id="">
+                <option value="">1</option>
+                <option value="">3</option>
+                <option value="">5</option>
+                <option value="">10</option>
+                <option value="">15</option>
+              </select>
+              <label for="add">How many Adults?</label>
+              <select name="add" class="form-control" id="">
+                <option value="">1</option>
+                <option value="">3</option>
+                <option value="">5</option>
+                <option value="">10</option>
+                <option value="">15</option>
+              </select>
+              <label for="adddr">Additional Requests</label>
+              <input class="form-control" name="adddr" id="" />
+              <hr />
+              <button class="btn btn-primary mt-1">Book</button>
+              <button class="btn btn-dark mt-1" data-dismiss="modal">
+                Close
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
