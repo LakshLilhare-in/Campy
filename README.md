@@ -14,7 +14,7 @@ Cloudinary API Secret
 `secret`
 MongoDB Database `database`
 
-Session Secret 'SECRET'
+Session Secret `SECRET`
 ## Features
 
 - Interactive Satelite Map
