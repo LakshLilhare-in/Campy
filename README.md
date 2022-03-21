@@ -26,7 +26,7 @@ Session Secret `SECRET`
   
 ## Feedback
 
-If you have any feedback, please reach out to us at laksh.r.lilhare@gmail.com
+If you have any feedback, please reach out to me at laksh.r.lilhare@gmail.com
 
 
 
