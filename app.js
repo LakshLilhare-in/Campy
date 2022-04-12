@@ -124,8 +124,8 @@ app.use((err, req, res, next) => {
 })
 
 
-app.listen(3000,() => {
-  console.log('App Serving on localhost:3000')
+app.listen(process.env.PORT,() => {
+  console.log('App Serving on localhost:' + process.env.PORT)
 })
 
     
