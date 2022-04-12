@@ -2,6 +2,7 @@
 if (process.env.NODE_ENV !== "production") {
     require('dotenv').config();
 }
+const Razorpay = require('razorpay');
 const express = require('express');
 const path = require('path');
 const mongoose = require('mongoose');
@@ -22,7 +23,8 @@ const userRoutes = require('./routes/users');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes = require('./routes/reviews');
 const { emitWarning } = require('process');
-const appName = ''
+const appName = '';
+
 mongoose.connect(process.env.database, {
     useNewUrlParser: true,
     useCreateIndex: true,
@@ -53,6 +55,7 @@ app.use(mongoSanitize({
     replaceWith: '_'
 }))
 
+var instance = new Razorpay({  key_id: 'rzp_test_goIy2Z5ts1LU9O',  key_secret: 'zgii6uoMqsX75ZPyAPEtMLAu',});
 
 const sessionConfig = {
     name: 'session',
@@ -102,6 +105,12 @@ app.use('/campgrounds/:id/reviews', reviewRoutes)
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname,'aurora/index.html'))
 });
+
+
+app.get('/donate', (req,res) => {
+       res.render('donate')
+    })
+
 
 
 app.all('*', (req, res, next) => {
